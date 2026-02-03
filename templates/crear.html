@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block title %}Crear Personaje{% endblock %}
+
+{% block content %}
+<h2 style="text-align: center; margin-bottom: 30px;">Crear Nuevo Personaje</h2>
+
+<form method="POST" enctype="multipart/form-data">
+
+    <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+    </div>
+
+    <div class="form-group">
+        <label for="raza">Raza:</label>
+        <input type="text" id="raza" name="raza" 
+               placeholder="Ej: Overlord, Humano, Elfo Oscuro">
+    </div>
+
+    <div class="form-group">
+        <label for="clase">Clase:</label>
+        <input type="text" id="clase" name="clase" 
+               placeholder="Ej: Mago, Guerrero, Sacerdote">
+    </div>
+
+    <div class="form-group">
+        <label for="nivel">Nivel:</label>
+        <input type="text" id="nivel" name="nivel" min="1" value="1" >
+    </div>
+
+    <div class="form-group">
+        <label for="afiliacion">Afiliación:</label>
+        <input type="text" id="afiliacion" name="afiliacion" 
+               placeholder="Ej: Nazarick, Imperio, Reino">
+    </div>
+
+    <div class="form-group">
+        <label for="karma">Karma:</label>
+        <input type="text" id="karma" name="karma" placeholder="Ej: Bueno, Neutral, Malvado">
+    </div>
+
+    <div class="form-group">
+        <label for="creador">Creador:</label>
+        <input type="text" id="creador" name="creador" placeholder="Ej: Yggdrasil">
+    </div>
+
+    <div class="form-group">
+        <label for="ocupacion">Ocupación:</label>
+        <input type="text" id="ocupacion" name="ocupacion"
+               placeholder="Ej: Guardián, Aventurero">
+    </div>
+
+    <div class="form-group">
+        <label for="habilidades_especiales">Habilidades Especiales:</label>
+        <textarea id="habilidades_especiales" name="habilidades_especiales"
+                  placeholder="Describe habilidades únicas..."></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="objeto_personal">Objeto Personal:</label>
+        <input type="text" id="objeto_personal" name="objeto_personal"
+               placeholder="Ej: Bastón mágico, Espada legendaria">
+    </div>
+
+    <div class="form-group">
+        <label for="descripcion">Descripción:</label>
+        <textarea id="descripcion" name="descripcion"
+                  placeholder="Describe al personaje..."></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="imagen">Imagen del Personaje:</label>
+        <input type="file" id="imagen" name="imagen" accept="image/*">
+    </div>
+
+    <div class="actions">
+        <button type="submit" class="btn btn-success">Crear Personaje</button>
+        <a href="{{ url_for('index') }}" class="btn btn-secondary">Cancelar</a>
+    </div>
+
+</form>
+{% endblock %}

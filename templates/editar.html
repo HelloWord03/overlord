@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block title %}Editar Personaje{% endblock %}
+
+{% block content %}
+<h2 style="text-align: center; margin-bottom: 30px;">Editar Personaje</h2>
+
+<form method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" value="{{ personaje.nombre }}" required>
+    </div>
+
+    <div class="form-group">
+        <label for="raza">Raza:</label>
+        <input type="text" id="raza" name="raza" value="{{ personaje.raza }}">
+    </div>
+
+    <div class="form-group">
+        <label for="clase">Clase:</label>
+        <input type="text" id="clase" name="clase" value="{{ personaje.clase }}" >
+    </div>
+
+    <div class="form-group">
+        <label for="nivel">Nivel:</label>
+        <input type="text" id="nivel" name="nivel" min="1" 
+               value="{{ personaje.nivel }}" >
+    </div>
+
+    <div class="form-group">
+        <label for="afiliacion">Afiliación:</label>
+        <input type="text" id="afiliacion" name="afiliacion" 
+               value="{{ personaje.afiliacion }}" >
+    </div>
+
+    <div class="form-group">
+        <label for="descripcion">Descripción:</label>
+        <textarea id="descripcion" name="descripcion">{{ personaje.descripcion }}</textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="karma">Karma:</label>
+        <input type="text" id="karma" name="karma" value="{{ personaje.karma }}">
+    </div>
+
+    <div class="form-group">
+        <label for="creador">Creador:</label>
+        <input type="text" id="creador" name="creador" value="{{ personaje.creador }}">
+    </div>
+
+    <div class="form-group">
+        <label for="ocupacion">Ocupación:</label>
+        <input type="text" id="ocupacion" name="ocupacion"
+               value="{{ personaje.ocupacion }}">
+    </div>
+
+    <div class="form-group">
+        <label for="habilidades_especiales">Habilidades Especiales:</label>
+        <textarea id="habilidades_especiales" name="habilidades_especiales">{{ personaje.habilidades_especiales }}</textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="objeto_personal">Objeto Personal:</label>
+        <input type="text" id="objeto_personal" name="objeto_personal"
+               value="{{ personaje.objeto_personal }}">
+    </div>
+
+    <div class="form-group">
+        <label for="imagen">Imagen del Personaje:</label>
+        <input type="file" id="imagen" name="imagen" accept="image/*">
+    </div>
+
+    <div class="actions">
+        <button type="submit" class="btn btn-success">Actualizar</button>
+        <a href="{{ url_for('index') }}" class="btn btn-secondary">Cancelar</a>
+    </div>
+</form>
+{% endblock %}

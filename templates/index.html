@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if personajes %}
+<div class="grid-container">
+    {% for personaje in personajes %}
+    <div class="personaje-card">
+        <h3>{{ personaje.nombre }}</h3>
+        <img src="{{ url_for('static', filename=personaje.imagen) }}" alt="{{ personaje.nombre }}">
+        <a href="{{ url_for('ver', id=personaje.id) }}" class="btn btn-primary">Ver Detalles</a>
+        <a href="{{ url_for('editar', id=personaje.id) }}" class="btn btn-warning">Editar</a>
+        <a href="{{ url_for('eliminar', id=personaje.id) }}" class="btn btn-danger"
+            onclick="return confirm('¿Estás seguro de eliminar este personaje?')">Eliminar
+        </a>
+    </div>
+    {% endfor %}
+{% else %}
+    <p colspan="6" style="text-align: center; padding: 40px;">
+        No hay personajes registrados. ¡Crea el primero!
+    </p>
+</div>
+
+{% endif %}
+
+{% endblock %}

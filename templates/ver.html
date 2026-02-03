@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}Ver Personaje{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2 style="text-align: center; margin-bottom: 30px; color: #f4a261;">
+        {{ personaje.nombre }}
+    </h2>
+
+    <div>
+        <img src="{{ url_for('static', filename=personaje.imagen) }}" alt="{{ personaje.nombre }}">
+    </div>
+
+    <div class="detail-row">
+        <div class="detail-label">Raza:</div>
+        <div>{{ personaje.raza }}</div>
+    </div>
+
+    <div class="detail-row">
+        <div class="detail-label">Clase:</div>
+        <div>{{ personaje.clase }}</div>
+    </div>
+
+    <div class="detail-row">
+        <div class="detail-label">Nivel:</div>
+        <div>{{ personaje.nivel }}</div>
+    </div>
+
+    <div class="detail-row">
+        <div class="detail-label">Afiliación:</div>
+        <div>{{ personaje.afiliacion }}</div>
+    </div>
+
+    <div class="detail-row">
+        <div class="detail-label">Descripción:</div>
+        <div>{{ personaje.descripcion if personaje.descripcion else 'Sin descripción' }}</div>
+    </div>
+
+    <div class="detail-row">
+        <div class="detail-label">Karma:</div>
+        <div>{{ personaje.karma if personaje.karma else 'Desconocido' }}</div>
+    </div>
+
+    <div class="detail-row">
+        <div class="detail-label">Creador:</div>
+        <div>{{ personaje.creador if personaje.creador else 'Sin Creador' }}</div>
+    </div>
+
+    <div class="detail-row">
+        <div class="detail-label">Ocupación:</div>
+        <div>{{ personaje.ocupacion if personaje.ocupacion else 'Sin Ocupación' }}</div>
+    </div>
+
+    <div class="detail-row">
+        <div class="detail-label">Habilidades:</div>
+        <div>{{ personaje.habilidades_especiales if personaje.habilidades_especiales else 'Sin Habilidades' }}</div>
+    </div>
+
+    <div class="detail-row">
+        <div class="detail-label">Objeto Personal:</div>
+        <div>{{ personaje.objeto_personal if personaje.objeto_personal else 'Sin Posesiones' }}</div>
+    </div>
+
+    <div class="actions" style="margin-top: 30px;">
+        <a href="{{ url_for('editar', id=personaje.id) }}" class="btn btn-warning">Editar</a>
+        <a href="{{ url_for('index') }}" class="btn btn-secondary">Volver</a>
+    </div>
+</div>
+{% endblock %}
