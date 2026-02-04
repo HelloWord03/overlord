@@ -23,7 +23,7 @@ aplicación.
 
 proyecto/ 
 │── app.py 
-│── insertar_personajes.py 
+│── insertarJSON.py 
 │── README.md 
 │ 
 ├──data/ 
@@ -59,7 +59,7 @@ http://127.0.0.1:5000
 
 ## Importación desde JSON
 
-python insertar_personajes.py
+python insertarJSON.py 
 
 ## Autor
 
