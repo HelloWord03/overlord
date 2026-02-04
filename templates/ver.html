@@ -9,7 +9,9 @@
     </h2>
 
     <div>
-        <img src="{{ url_for('static', filename=personaje.imagen) }}" alt="{{ personaje.nombre }}">
+        <a href="{{ url_for('imagenes', filename=personaje.imagen) }}">
+            <img src="{{ url_for('static', filename=personaje.imagen) }}" alt="{{ personaje.nombre }}">
+        </a>
     </div>
 
     <div class="detail-row">
@@ -64,6 +66,7 @@
 
     <div class="actions" style="margin-top: 30px;">
         <a href="{{ url_for('editar', id=personaje.id) }}" class="btn btn-warning">Editar</a>
+        <a href="{{ url_for('descargar_csv_personaje', id=personaje.id) }}" class="btn btn-warning">Descargar csv</a>
         <a href="{{ url_for('index') }}" class="btn btn-secondary">Volver</a>
     </div>
 </div>
