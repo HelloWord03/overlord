@@ -33,6 +33,11 @@ class Personaje(db.Model):
         return f"<Personaje {self.nombre}>"
 
 def insertar_personajes_desde_json(archivo_json, limpiar_tabla=False):
+    """Inserta personajes en la base de datos desde un archivo JSON.
+    Args:
+        archivo_json (str): Ruta al archivo JSON con los datos de los personajes.
+        limpiar_tabla (bool): Si es True, limpia la tabla antes de insertar nuevos datos.
+    """
     if not os.path.exists(archivo_json):
         print(f"Error: No se encuentra el archivo {archivo_json}")
         return
@@ -79,6 +84,8 @@ def insertar_personajes_desde_json(archivo_json, limpiar_tabla=False):
         print(f"\nResumen: {personajes_insertados} personajes guardados en {app.config['SQLALCHEMY_DATABASE_URI']}")
 
 def main():
+    """Función principal para manejar argumentos y ejecutar la inserción."""
+    
     parser = argparse.ArgumentParser(description='Insertar personajes usando SQLAlchemy')
     parser.add_argument('archivo_json', nargs='?', default='./data/personajes.json')
     parser.add_argument('--limpiar', action='store_true')

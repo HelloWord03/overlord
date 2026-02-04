@@ -62,6 +62,8 @@ with app.app_context():
 def allowed_file(filename):
     """
     Verifica si un archivo tiene extensión permitida.
+    args:   
+        filename (str): Nombre del archivo.
     """
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
@@ -121,6 +123,9 @@ def crear():
 def editar(id):
     """
     Editar un personaje existente.
+
+    args:
+        id (int): ID del personaje a editar.
     """
     personaje = Personaje.query.get_or_404(id)
 
@@ -155,6 +160,9 @@ def editar(id):
 def eliminar(id):
     """
     Elimina un personaje por su ID.
+
+    args:
+        id (int): ID del personaje a eliminar.
     """
     personaje = Personaje.query.get_or_404(id)
     
@@ -180,6 +188,9 @@ def eliminar(id):
 def ver(id):
     """
     Visualiza los detalles de un personaje.
+
+    args:
+        id (int): ID del personaje a visualizar.
     """
     personaje = Personaje.query.get_or_404(id)
     return render_template('ver.html', personaje=personaje)
@@ -189,6 +200,9 @@ def ver(id):
 def imagenes(filename):
     """
     Devuelve imágenes desde la carpeta estática.
+
+    args:   
+        filename (str): Nombre del archivo de imagen.
     """
     return send_from_directory('static', filename)
 
@@ -198,6 +212,7 @@ def descargar_csv():
     """
     Genera y descarga un archivo CSV con todos los personajes.
     """
+
     # Obtener todos los personajes de la base de datos
     personajes = Personaje.query.order_by(Personaje.nombre).all()
 
